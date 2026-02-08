@@ -1,12 +1,21 @@
 <?php
-$host = "localhost";
+$host = "127.0.0.1";
 $db   = "exam_system";
 $user = "root";
-$pass = "";
+$pass = "root";
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$db;port=3306;charset=utf8",
+        $user,
+        $pass
+    );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo json_encode(["error" => "Database connection failed"]);
+} catch (PDOException $e) {
+    http_response_code(500);
+    echo json_encode([
+        "error" => true,
+        "message" => "Database connection failed"
+    ]);
+    exit;
 }

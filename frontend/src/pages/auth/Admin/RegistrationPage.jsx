@@ -37,7 +37,7 @@ const Register = () => {
           name: formData.name,
           email: formData.email,
           password: formData.password,
-          role: "student", // change to "teacher" for teacher page
+          role: "admin", // change to "teacher" for teacher page
         }),
       }
     );
@@ -72,7 +72,7 @@ const Register = () => {
           Create Account
         </h2>
         <p className="text-center text-gray-500 mb-6">
-          Register as a student
+          Register as a Admin
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">

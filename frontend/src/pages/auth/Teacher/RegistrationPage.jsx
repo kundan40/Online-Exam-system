@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Register = () => {
+const TeacherRegister = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,7 +15,7 @@ const Register = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
- const handleSubmit = async (e) => {
+   const handleSubmit = async (e) => {
   e.preventDefault();
 
   if (formData.password !== formData.confirmPassword) {
@@ -37,7 +37,7 @@ const Register = () => {
           name: formData.name,
           email: formData.email,
           password: formData.password,
-          role: "student", // change to "teacher" for teacher page
+          role: "teacher", // change to "teacher" for teacher page
         }),
       }
     );
@@ -69,10 +69,10 @@ const Register = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-2">
-          Create Account
+          Teacher Registration
         </h2>
         <p className="text-center text-gray-500 mb-6">
-          Register as a student
+          Create your teacher account
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -87,7 +87,7 @@ const Register = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="mt-1 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+              className="mt-1 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 outline-none"
               placeholder="Enter full name"
             />
           </div>
@@ -103,7 +103,7 @@ const Register = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="mt-1 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+              className="mt-1 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 outline-none"
               placeholder="Enter email"
             />
           </div>
@@ -119,7 +119,7 @@ const Register = () => {
               value={formData.password}
               onChange={handleChange}
               required
-              className="mt-1 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+              className="mt-1 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 outline-none"
               placeholder="Create password"
             />
           </div>
@@ -135,7 +135,7 @@ const Register = () => {
               value={formData.confirmPassword}
               onChange={handleChange}
               required
-              className="mt-1 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+              className="mt-1 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 outline-none"
               placeholder="Confirm password"
             />
           </div>
@@ -144,15 +144,15 @@ const Register = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition"
           >
-            {loading ? "Creating account..." : "Register"}
+            {loading ? "Creating account..." : "Register as Teacher"}
           </button>
 
-          {/* Login link */}
+          {/* Login */}
           <p className="text-center text-sm text-gray-600">
-            Already have an account?{" "}
-            <Link to="/login" className="text-blue-600 hover:underline">
+            Already registered?{" "}
+            <Link to="/login" className="text-indigo-600 hover:underline">
               Login
             </Link>
           </p>
@@ -162,4 +162,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default TeacherRegister;

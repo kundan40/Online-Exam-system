@@ -26,6 +26,14 @@ import Exams from '../pages/student/Exams';
 import Attempt from '../pages/exam/Attempt';
 import Result from '../pages/exam/Result';
 
+
+// teachcer registration page
+import TeacherRegister from '../pages/auth/Teacher/RegistrationPage';
+
+
+
+// Admin registration page
+import AdminRegister from '../pages/auth/Admin/RegistrationPage';
 const AppRoutes = () => {
   return (
     <Routes>
@@ -35,6 +43,8 @@ const AppRoutes = () => {
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/teacher/register" element={<TeacherRegister />} />
+        <Route path="/admin/register" element={<AdminRegister />} />
       </Route>
 
       {/* Protected Routes */}
