@@ -50,7 +50,7 @@ if (!in_array($role, $allowedRoles)) {
     exit;
 }
 
-// 🔍 Check duplicate email
+// 🔍 Check duplicate email yes
 $check = $pdo->prepare("SELECT id FROM users WHERE email = ?");
 $check->execute([$email]);
 
